@@ -111,7 +111,7 @@ public class ClubInfoRegisterController {
 
             //TODO ➌ resultの取得結果に応じて、遷移先を変更する。
             if ("updateClubInfo".equals(result)) {
-                mav.addObject("message", resultMessage);
+                mav.addObject("updateClubInfo", resultMessage);
                 mav.addObject("leaderClubId", leaderClubId);
                 mav.setViewName("clubInfoRegister");
             } else {

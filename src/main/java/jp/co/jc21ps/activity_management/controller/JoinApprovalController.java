@@ -89,7 +89,7 @@ public class JoinApprovalController {
             mav.addObject("message", resultMessage);
             mav.addObject("joinApprovalform", responseForm);
             mav.addObject("leaderClubId", leaderClubId);
-            mav.setViewName("JoinApproval");
+            mav.setViewName("joinApproval");
 
         } catch (Exception e) {
             mav.addObject("leaderClubId", leaderClubId);

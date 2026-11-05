@@ -86,7 +86,7 @@ public class TopController {
 
             }
             paramForm.setMessage(activityRegisterCompleteMessage);
-            if (!ObjectUtils.isEmpty(paramForm)) {
+            if (!ObjectUtils.isEmpty(paramForm.getMessage())) {
                 mav.addObject("activityRegisterCompleteMessage", paramForm.getMessage());
             }
 

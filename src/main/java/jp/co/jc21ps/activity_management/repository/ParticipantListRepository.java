@@ -25,7 +25,7 @@ public class ParticipantListRepository {
                 p.activity_id,
                 p.user_id,
                 a.activity_name,
-                u.login_name AS user_name
+                u.user_name
             FROM
                 trn_participant AS p
             INNER JOIN
@@ -50,7 +50,7 @@ public class ParticipantListRepository {
 
             // responseEntityに値をセットする
             ParticipantListEntity responseEntity = new ParticipantListEntity();
-            responseEntity.setActivityId((String) participant.get("activity_id"));
+            responseEntity.setActivityId(String.valueOf(participant.get("activity_id")));
             responseEntity.setUserId((String) participant.get("user_id"));
             responseEntity.setActivityName((String) participant.get("activity_name"));
             responseEntity.setUserName((String) participant.get("user_name"));

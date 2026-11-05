@@ -43,12 +43,12 @@ public class RegisterActivitySaveForm {
     private String activityDate;
 
     // 過去の日付が入力されたとき
-    @AssertTrue(message = "{AssertTrue.activityDate}")
+    @AssertTrue(message = "{AssertTrue.activityDateValid}")
     public boolean isActivityDateValid() {
         try {
-            if (activityDate != null) {
+            if (activityDate != null && !activityDate.isEmpty()) {
                 LocalDate inputDate = LocalDate.parse(activityDate);
-                return !inputDate.isBefore(LocalDate.now());
+                return inputDate.isAfter(LocalDate.now());
             }
             return true;
 
@@ -90,11 +90,12 @@ public class RegisterActivitySaveForm {
     private String activityEndTime;
 
     // 時間の前後関係チェック
-    @AssertTrue(message = "{AssertTrue}")
+    @AssertTrue(message = "{AssertTrue.dateValid}")
     public boolean isDateValid() {
         try {
 
-            if (activityEndTime != null || activityStartTime != null) {
+            if (activityEndTime != null && activityStartTime != null
+                    && !activityEndTime.isEmpty() && !activityStartTime.isEmpty()) {
                 int activityEndTimeInt = Integer.parseInt(activityEndTime.replace(":", ""));
                 int activityStartTimeInt = Integer.parseInt(activityStartTime.replace(":", ""));
 
