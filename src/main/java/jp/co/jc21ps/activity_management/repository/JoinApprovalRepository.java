@@ -32,11 +32,19 @@ public class JoinApprovalRepository {
                 INNER JOIN
                     mst_user AS usr
                 ON
+<<<<<<< HEAD
                     usr.user_id = request.user_id
                 INNER JOIN
                     mst_club AS club
                 ON
                     club.club_id = request.club_id
+=======
+                    request.user_id = usr.user_id
+                INNER JOIN
+                    mst_club AS club
+                ON
+                    request.club_id = club.club_id
+>>>>>>> 52bcfe9dbb7d1123ebfb2e1a94ccda48c3909a8d
                 WHERE
                     request.club_id = ?
                 """;
@@ -93,10 +101,18 @@ public class JoinApprovalRepository {
          * TODO ➋ ユーザーを承認するSQL文を完成させる。
          */
         String sqlInsert = """
+<<<<<<< HEAD
                 INSERT INTO
                     trn_club_member (club_id, user_id, leader_flg)
                 VALUES
                     (?, ?, ?)
+=======
+        INSERT INTO
+            trn_club_member (club_id,
+            user_id,
+            leader_flg)
+        VALUES (?,?,?)
+>>>>>>> 52bcfe9dbb7d1123ebfb2e1a94ccda48c3909a8d
                 """;
 
         // entityから値をゲット
@@ -115,6 +131,7 @@ public class JoinApprovalRepository {
          * TODO ➌ ユーザーを否認するSQL文を完成させる。
          */
         String sqlDelete = """
+<<<<<<< HEAD
                 DELETE FROM
                     trn_join_request
                 WHERE
@@ -123,6 +140,17 @@ public class JoinApprovalRepository {
                     user_id = ?
                 AND
                     leader_flg = ?
+=======
+            DELETE FROM
+                trn_join_request
+            WHERE
+                club_id = ?
+            AND
+                user_id = ?
+            AND
+                leader_flg = ?
+
+>>>>>>> 52bcfe9dbb7d1123ebfb2e1a94ccda48c3909a8d
                 """;
 
         // entityから値をゲット
